@@ -4,11 +4,10 @@ class Node:
         self.left = None
         self.right = None
 
-
-def sum_values(root):
-    if root is None:
-        return 0
-    return root.data + sum_values(root.left) + sum_values(root.right)
+    def sum_values(self, root):
+        if root is None:
+            return 0
+        return root.data + self.sum_values(root.left) + self.sum_values(root.right)
 
 
 # Our example tree looks like this:
@@ -29,4 +28,5 @@ node2.right = node4
 node3.right = node6
 node3.left = node5
 
-print(sum_values(node2))
+n = Node(0)
+print(n.sum_values(node3))
