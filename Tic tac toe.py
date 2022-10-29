@@ -116,32 +116,32 @@ class Tic_tac_toe:
                                   self.seven, self.eight, self.nine]
             self.random_choice = random.choice(self.random_choice)
             if self.random_choice is None:
-                if self.random_choice == self.one:
-                    self.one = self.o
-                    t.print_tic_tac_Toe_board()
-                elif self.random_choice == self.two:
+                if self.random_choice == self.two:
                     self.two = self.o
                     t.print_tic_tac_Toe_board()
-                elif self.random_choice == self.three:
-                    self.three = self.o
+                elif self.random_choice == self.five:
+                    self.five = self.o
+                    t.print_tic_tac_Toe_board()
+                elif self.random_choice == self.one:
+                    self.one = self.o
                     t.print_tic_tac_Toe_board()
                 elif self.random_choice == self.four:
                     self.four = self.o
                     t.print_tic_tac_Toe_board()
-                elif self.random_choice == self.five:
-                    self.five = self.o
+                elif self.random_choice == self.three:
+                    self.three = self.o
+                    t.print_tic_tac_Toe_board()
+                elif self.random_choice == self.nine:
+                    self.nine = self.o
+                    t.print_tic_tac_Toe_board()
+                elif self.random_choice == self.eight:
+                    self.eight = self.o
                     t.print_tic_tac_Toe_board()
                 elif self.random_choice == self.six:
                     self.six = self.o
                     t.print_tic_tac_Toe_board()
                 elif self.random_choice == self.seven:
                     self.seven = self.o
-                    t.print_tic_tac_Toe_board()
-                elif self.random_choice == self.eight:
-                    self.eight = self.o
-                    t.print_tic_tac_Toe_board()
-                elif self.random_choice == self.nine:
-                    self.nine = self.o
                     t.print_tic_tac_Toe_board()
                 else:
                     print("We have a problem!!==========================")
