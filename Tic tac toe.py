@@ -200,6 +200,10 @@ class Tic_tac_toe:
         elif self.three == self.o and self.five == self.o and self.seven == self.o:
             print("O Won the game")
             exit()
+        elif self.number == 9:
+            print("Its a draw!")
+            exit()
+
         else:
             pass
 
