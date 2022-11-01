@@ -18,6 +18,8 @@ class Tic_tac_toe:
         self.x = "X"
         self.o = "O"
 
+        self.num = 0
+
         self.random_choice = random_choice
         self.number = number
 
@@ -39,6 +41,7 @@ class Tic_tac_toe:
                         self.choice[qus][1] = self.x
                         self.choice[qus][2] = True
                         self.number += 1
+                        t.winner()
                         t.computer_choice()
                     else:
                         t.print_tic_tac_Toe_board()
@@ -62,10 +65,24 @@ class Tic_tac_toe:
         t.start_game()
 
     def winner(self):
-        if self.choice[1][1] == self.x and self.choice[2][1] == self.x and self.choice[3][1] == self.x or self.choice[4][1] == self.x and self.choice[5][1] == self.x and self.choice[6][1] == self.x or self.choice[7][1] == self.x and self.choice[8][1] == self.x and self.choice[9][1] == self.x or self.choice[1][1] == self.x and self.choice[4][1] == self.x and self.choice[7][1] == self.x or self.choice[2][1] == self.x and self.choice[5][1] == self.x and self.choice[8][1] == self.x or self.choice[3][1] == self.x and self.choice[6][1] == self.x and self.choice[9][1] == self.x or self.choice[1][1] == self.x and self.choice[5][1] == self.x and self.choice[9][1] == self.x or self.choice[3][1] == self.x and self.choice[5][1] == self.x and self.choice[7][1] == self.x:
+        if self.choice[1][1] == self.x and self.choice[2][1] == self.x and self.choice[3][1] == self.x or \
+                self.choice[4][1] == self.x and self.choice[5][1] == self.x and self.choice[6][1] == self.x or \
+                self.choice[7][1] == self.x and self.choice[8][1] == self.x and self.choice[9][1] == self.x or \
+                self.choice[1][1] == self.x and self.choice[4][1] == self.x and self.choice[7][1] == self.x or \
+                self.choice[2][1] == self.x and self.choice[5][1] == self.x and self.choice[8][1] == self.x or \
+                self.choice[3][1] == self.x and self.choice[6][1] == self.x and self.choice[9][1] == self.x or \
+                self.choice[1][1] == self.x and self.choice[5][1] == self.x and self.choice[9][1] == self.x or \
+                self.choice[3][1] == self.x and self.choice[5][1] == self.x and self.choice[7][1] == self.x:
             print("X Won the game!")
             exit()
-        elif self.choice[1][1] == self.o and self.choice[2][1] == self.o and self.choice[3][1] == self.o or self.choice[4][1] == self.o and self.choice[5][1] == self.o and self.choice[6][1] == self.o or self.choice[7][1] == self.o and self.choice[8][1] == self.o and self.choice[9][1] == self.o or self.choice[1][1] == self.o and self.choice[4][1] == self.o and self.choice[7][1] == self.o or self.choice[2][1] == self.o and self.choice[5][1] == self.o and self.choice[8][1] == self.o or self.choice[3][1] == self.o and self.choice[6][1] == self.o and self.choice[9][1] == self.o or self.choice[1][1] == self.o and self.choice[5][1] == self.o and self.choice[9][1] == self.o or self.choice[3][1] == self.o and self.choice[5][1] == self.o and self.choice[7][1] == self.o:
+        elif self.choice[1][1] == self.o and self.choice[2][1] == self.o and self.choice[3][1] == self.o or \
+                self.choice[4][1] == self.o and self.choice[5][1] == self.o and self.choice[6][1] == self.o or \
+                self.choice[7][1] == self.o and self.choice[8][1] == self.o and self.choice[9][1] == self.o or \
+                self.choice[1][1] == self.o and self.choice[4][1] == self.o and self.choice[7][1] == self.o or \
+                self.choice[2][1] == self.o and self.choice[5][1] == self.o and self.choice[8][1] == self.o or \
+                self.choice[3][1] == self.o and self.choice[6][1] == self.o and self.choice[9][1] == self.o or \
+                self.choice[1][1] == self.o and self.choice[5][1] == self.o and self.choice[9][1] == self.o or \
+                self.choice[3][1] == self.o and self.choice[5][1] == self.o and self.choice[7][1] == self.o:
             print("O Won the game!")
             exit()
         elif self.number == 9:
@@ -75,12 +92,130 @@ class Tic_tac_toe:
             pass
 
     def computer_choice(self):
-        num = random.randint(1, 9)
+        if self.choice[1][1] + self.choice[2][1] == "OO" and self.choice[3][2] is False:
+            self.num = 3
+        elif self.choice[3][1] + self.choice[2][1] == "OO" and self.choice[1][2] is False:
+            self.num = 1
+        elif self.choice[4][1] + self.choice[5][1] == "OO" and self.choice[6][2] is False:
+            self.num = 6
+        elif self.choice[6][1] + self.choice[5][1] == "OO" and self.choice[4][2] is False:
+            self.num = 4
+        elif self.choice[7][1] + self.choice[8][1] == "OO" and self.choice[9][2] is False:
+            self.num = 9
+        elif self.choice[9][1] + self.choice[8][1] == "OO" and self.choice[7][2] is False:
+            self.num = 7
+
+        elif self.choice[1][1] + self.choice[4][1] == "OO" and self.choice[7][2] is False:
+            self.num = 7
+        elif self.choice[7][1] + self.choice[4][1] == "OO" and self.choice[1][2] is False:
+            self.num = 1
+        elif self.choice[2][1] + self.choice[5][1] == "OO" and self.choice[8][2] is False:
+            self.num = 8
+        elif self.choice[8][1] + self.choice[5][1] == "OO" and self.choice[2][2] is False:
+            self.num = 2
+        elif self.choice[3][1] + self.choice[6][1] == "OO" and self.choice[9][2] is False:
+            self.num = 9
+        elif self.choice[9][1] + self.choice[6][1] == "OO" and self.choice[3][2] is False:
+            self.num = 3
+
+        elif self.choice[1][1] + self.choice[5][1] == "OO" and self.choice[9][2] is False:
+            self.num = 9
+        elif self.choice[9][1] + self.choice[5][1] == "OO" and self.choice[1][2] is False:
+            self.num = 1
+        elif self.choice[3][1] + self.choice[5][1] == "OO" and self.choice[7][2] is False:
+            self.num = 7
+        elif self.choice[7][1] + self.choice[5][1] == "OO" and self.choice[4][2] is False:
+            self.num = 3
+
+        elif self.choice[1][1] + self.choice[3][1] == "OO" and self.choice[2][2] is False:
+            self.num = 2
+        elif self.choice[1][1] + self.choice[7][1] == "OO" and self.choice[4][2] is False:
+            self.num = 4
+        elif self.choice[3][1] + self.choice[9][1] == "OO" and self.choice[6][2] is False:
+            self.num = 6
+        elif self.choice[7][1] + self.choice[9][1] == "OO" and self.choice[8][2] is False:
+            self.num = 8
+        elif self.choice[1][1] + self.choice[9][1] == "OO" and self.choice[5][2] is False:
+            self.num = 5
+        elif self.choice[3][1] + self.choice[7][1] == "OO" and self.choice[5][2] is False:
+            self.num = 5
+        elif self.choice[2][1] + self.choice[8][1] == "OO" and self.choice[5][2] is False:
+            self.num = 5
+
+        elif self.choice[1][1] + self.choice[2][1] == "XX" and self.choice[3][2] is False:
+            self.num = 3
+        elif self.choice[3][1] + self.choice[2][1] == "XX" and self.choice[1][2] is False:
+            self.num = 1
+        elif self.choice[4][1] + self.choice[5][1] == "XX" and self.choice[6][2] is False:
+            self.num = 6
+        elif self.choice[6][1] + self.choice[5][1] == "XX" and self.choice[4][2] is False:
+            self.num = 4
+        elif self.choice[7][1] + self.choice[8][1] == "XX" and self.choice[9][2] is False:
+            self.num = 9
+        elif self.choice[9][1] + self.choice[8][1] == "XX" and self.choice[7][2] is False:
+            self.num = 7
+
+        elif self.choice[1][1] + self.choice[4][1] == "XX" and self.choice[7][2] is False:
+            self.num = 7
+        elif self.choice[7][1] + self.choice[4][1] == "XX" and self.choice[1][2] is False:
+            self.num = 1
+        elif self.choice[2][1] + self.choice[5][1] == "XX" and self.choice[8][2] is False:
+            self.num = 8
+        elif self.choice[8][1] + self.choice[5][1] == "XX" and self.choice[2][2] is False:
+            self.num = 2
+        elif self.choice[3][1] + self.choice[6][1] == "XX" and self.choice[9][2] is False:
+            self.num = 9
+        elif self.choice[9][1] + self.choice[6][1] == "XX" and self.choice[3][2] is False:
+            self.num = 3
+
+        elif self.choice[1][1] + self.choice[5][1] == "XX" and self.choice[9][2] is False:
+            self.num = 9
+        elif self.choice[9][1] + self.choice[5][1] == "XX" and self.choice[1][2] is False:
+            self.num = 1
+        elif self.choice[3][1] + self.choice[5][1] == "XX" and self.choice[7][2] is False:
+            self.num = 7
+        elif self.choice[7][1] + self.choice[5][1] == "XX" and self.choice[4][2] is False:
+            self.num = 3
+
+        elif self.choice[1][1] + self.choice[3][1] == "XX" and self.choice[2][2] is False:
+            self.num = 2
+        elif self.choice[1][1] + self.choice[7][1] == "XX" and self.choice[4][2] is False:
+            self.num = 4
+        elif self.choice[3][1] + self.choice[9][1] == "XX" and self.choice[6][2] is False:
+            self.num = 6
+        elif self.choice[7][1] + self.choice[9][1] == "XX" and self.choice[8][2] is False:
+            self.num = 8
+        elif self.choice[1][1] + self.choice[9][1] == "XX" and self.choice[5][2] is False:
+            self.num = 5
+        elif self.choice[3][1] + self.choice[7][1] == "XX" and self.choice[5][2] is False:
+            self.num = 5
+        elif self.choice[2][1] + self.choice[8][1] == "XX" and self.choice[5][2] is False:
+            self.num = 5
+
+        elif self.choice[1][1] == "X" and self.choice[5][2] is False:
+            self.num = 5
+        elif self.choice[2][1] == "X" and self.choice[5][2] is False:
+            self.num = 5
+        elif self.choice[3][1] == "X" and self.choice[5][2] is False:
+            self.num = 5
+        elif self.choice[4][1] == "X" and self.choice[5][2] is False:
+            self.num = 5
+        elif self.choice[6][1] == "X" and self.choice[5][2] is False:
+            self.num = 5
+        elif self.choice[7][1] == "X" and self.choice[5][2] is False:
+            self.num = 5
+        elif self.choice[8][1] == "X" and self.choice[5][2] is False:
+            self.num = 5
+        elif self.choice[9][1] == "X" and self.choice[5][2] is False:
+            self.num = 5
+        else:
+            self.num = random.randint(1, 9)
+
         if self.number % 2 == 1:
-            if self.choice[num][2] is False:
-                self.choice[num][1] = self.o
+            if self.choice[self.num][2] is False:
+                self.choice[self.num][1] = self.o
                 self.number += 1
-                self.choice[num][2] = True
+                self.choice[self.num][2] = True
                 t.print_tic_tac_Toe_board()
             else:
                 t.computer_choice()
